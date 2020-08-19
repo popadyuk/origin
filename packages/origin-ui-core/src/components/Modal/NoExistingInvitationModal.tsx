@@ -14,9 +14,11 @@ export const NoExistingInvitationModal = () => {
     const user = useSelector(getUserOffchain);
     const history = useHistory();
     const { t } = useTranslation();
-    const firstLogin = JSON.parse(localStorage.getItem('firstLogin')) === null
-    const showMessage = !invitations.length && user && !user.organization && isOpen && firstLogin;
-  
+    const firstLogin = JSON.parse(localStorage.getItem('firstLogin')) === null;
+
+    const checkUser = () => user !== null ? user && !user.organization : false
+    const showMessage = !invitations.length && checkUser() && isOpen && firstLogin;
+
     const notNow = () => {
         setIsOpen(false)
         localStorage.setItem('firstLogin', 'false')
@@ -24,7 +26,7 @@ export const NoExistingInvitationModal = () => {
 
     const register = () => {
         history.push("/organization/organization-register")
-        setIsOpen(false)
+        setIsOpen(false) 
         localStorage.setItem('firstLogin', 'false')
     };
 
