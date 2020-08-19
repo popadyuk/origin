@@ -20,6 +20,7 @@ import { OriginConfigurationContext } from '.';
 import { LoginPage } from './Account/LoginPage';
 import { PendingInvitationsModal } from './Modal/PendingInvitationsModal';
 import { RoleChangedModal } from './Modal/RoleChangedModal';
+import { NoExistingInvitationModal } from './Modal/NoExistingInvitationModal';
 import { getUserOffchain } from '../features/users/selectors';
 
 export function AppContainer() {
@@ -111,6 +112,7 @@ export function AppContainer() {
                     <NoBlockchainAccountModal />
                     <PendingInvitationsModal />
                     <RoleChangedModal />
+                    <NoExistingInvitationModal />
                 </div>
             </Route>
         </Switch>
